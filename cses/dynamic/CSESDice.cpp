@@ -11,6 +11,28 @@ const ll MOD = 1e9 + 7;
 
 void solve()
 {
+    ll n, x;
+
+    cin >> n;
+    cin >> x;
+
+    vll coins(n);
+    for (ll &i : coins)
+        cin >> i;
+
+    vll dp(x + 1, 0);
+    dp[0] = 1;
+    for (ll i = 1; i <= x; i++)
+    {
+        for (ll c : coins)
+        {
+            if (i - c > 0)
+            {
+                dp[i] = (dp[i] + 1) % MOD;
+            }
+        }
+    }
+    cout << dp[x];
 }
 
 int main()
