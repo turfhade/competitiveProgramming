@@ -18,44 +18,34 @@ const ll LINF = 1e18;
 
 //w/ prefix sum;
 /*
-    ll sum=0;
     ll n; cin >> n;vector<ll> arr(n);
+    vll sum(n+1,0);
+    sum[0] = 0;
     for(ll i = 0; i < n; i++)
-    { cin >> arr[i]; sum += arr[i]; } }
+    { cin >> arr[i]; sum[i+1] += abs(arr[i]) + sum[i]; } 
 */
 void solve()
 {
 
-    ll sum=0;
+
     ll n; cin >> n;vector<ll> arr(n);
+    vll sum(n+1,0);
+    sum[0] = 0;
     for(ll i = 0; i < n; i++)
-    { cin >> arr[i]; sum += -1 * abs(arr[i]); } 
+    { cin >> arr[i]; sum[i+1] += abs(arr[i]) + sum[i]; } 
+
 
     int count=0;
     ll ops=0;
     vll opsI;
     for(ll i = n-1;i>=0;i--)
     {
-        if((arr[i] < 0 && count==0) || (arr[i] == 0))
+        if(arr[i] > 0)
         {
-            continue;
-        }
-        else if(arr[i] > 0 && count==0)
-        {
-            count =1;
-            ops++;
-            opsI.push_back(i+1);
-        }
-        else if(arr[i] > 0 && count == 1)
-        {
-            continue;
-        }
-        else if(arr[i] < 0 && count == 1)
-        {
-            count = 0;
-            ops++;
-            opsI.push_back(i+1);
-        }
+            if(sum[i+1] - arr[i] > 0)
+            {
+
+            }
     }
     cout << ops << "\n";
     for(ll i : opsI)
