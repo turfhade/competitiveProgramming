@@ -1,0 +1,65 @@
+//fun with vim
+vim.cmd('colorscheme shine')
+vim.cmd('highlight Number ctermfg=magenta guifg=#ee77ee')
+vim.cmd('highlight MatchParen guifg=NONE')
+vim.cmd('autocmd InsertEnter * set norelativenumber')
+vim.cmd('autocmd InsertLeave * set relativenumber')
+vim.cmd('set number')
+vim.cmd('set tabstop=4')
+vim.cmd('set shiftwidth=4')
+vim.keymap.set('i', '{', '{<CR>}<Esc>O')
+vim.keymap.set('i', '(', '()<Left>')
+vim.keymap.set('i', '[', '[]<Left>')
+vim.keymap.set('i', '"', '""<Left>')
+vim.keymap.set('i', "'", "''<Left>")
+vim.opt.clipboard = "unnamedplus"
+
+//boilerplate
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define fi first
+#define se second
+#define rep(i, a, b) for (int i = (a); i < (b); i++)
+
+const int MOD = 1e9 + 7;
+const int INF = 1e9;
+const ll LINF = 1e18;
+
+template <typename T>
+void read(vector<T> &a)
+{
+    for (auto &x : a)
+        cin >> x;
+}
+void solve()
+{
+    /*
+    ll n;
+    cin >> n;
+    vll arr(n);
+    read(arr);
+   */
+	for(ll i = 1; i < 5; i++)
+
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t = 1;
+    cin >> t;
+    while (t--)
+        solve();
+
+    return 0;
+}
