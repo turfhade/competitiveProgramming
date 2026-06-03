@@ -13,7 +13,10 @@ inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
 augroup viewsave
 autocmd BufWinLeave ?* silent! mkview
 autocmd BufWinEnter ?* silent! loadview
-autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall -DLOCAL % -o %< <CR> :vert term ./%< <CR>
+autocmd FileType cpp nnoremap <F4> :w <BAR> !konsole --noclose -e bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
+autocmd FileType cpp nnoremap <F3> :w <BAR> !gnome-terminal -- bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'; echo; read -p '--- Press Enter to close ---'" &<CR><CR>
+autocmd FileType cpp nnoremap <F2> :w <BAR> !xfce4-terminal --hold -x bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
+autocmd FileType cpp nnoremap <F1> :w <BAR> !xterm -hold -e bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
 augroup END
 inoremap { {<CR>}<Esc>O
 inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/
