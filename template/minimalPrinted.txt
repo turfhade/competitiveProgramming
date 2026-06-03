@@ -1,10 +1,40 @@
 set guifont=Monospace\ 22
-set number relativenumber
+set termguicolors
+set clipboard=unnamedplus
+set undofile
+set undodir=~/.vim/undodir
 set tabstop=4 shiftwidth=4
 set autoindent smartindent cindent
 syntax on
+colorscheme shine
 filetype plugin indent on
 inoremap { {<CR>}<Esc>O
-inoremap ( ()<Left>
-inoremap [ []<Left>
-autocmd FileType cpp nnoremap <F5> :w<CR>:terminal g++ -std=c++17 -O2 % -o out && time ./out < input.txt > output.txt<CR>
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
+augroup viewsave
+autocmd BufWinLeave ?* silent! mkview
+autocmd BufWinEnter ?* silent! loadview
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>
+augroup END
+inoremap { {<CR>}<Esc>O
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define rep(i, a, b) for (int i = (a); i < (b); i++)
+void solve()
+{
+    //cursor
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t = 1;
+    //cin >> t;
+    while (t--)
+        solve();
+    return 0;
+}
