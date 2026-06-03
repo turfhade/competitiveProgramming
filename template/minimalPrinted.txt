@@ -13,13 +13,18 @@ inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
 augroup viewsave
 autocmd BufWinLeave ?* silent! mkview
 autocmd BufWinEnter ?* silent! loadview
-autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall -DLOCAL % -o %< <CR> :vert term ./%< <CR>
 augroup END
 inoremap { {<CR>}<Esc>O
 inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/
 
 #include <bits/stdc++.h>
 using namespace std;
+#ifdef LOCAL
+    #define dbg(x) cerr << #x << " = " << (x) << endl
+#else
+    #define dbg(x)
+#endif
 typedef long long ll;
 #define all(x) (x).begin(), (x).end()
 #define pb push_back
