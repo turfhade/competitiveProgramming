@@ -27,10 +27,16 @@ augroup END
 augroup viewsave
 autocmd BufWinLeave ?* silent! mkview      " IMPORTANT --
 autocmd BufWinEnter ?* silent! loadview    " IMPORTANT: saves/restores folds and cursor position
-autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>  " IMPORTANT: F5 saves, compiles, and runs in a vertical split
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall -DLOCAL % -o %< <CR> :vert term ./%< <CR>  " IMPORTANT: F5 saves, compiles, and runs in a vertical split
 
 #include <bits/stdc++.h>
 using namespace std;
+
+#ifdef LOCAL
+    #define dbg(x) cerr << #x << " = " << (x) << endl
+#else
+    #define dbg(x)
+#endif
 
 typedef long long ll;
 typedef pair<int, int> pii;
