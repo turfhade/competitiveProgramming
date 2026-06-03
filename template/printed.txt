@@ -33,8 +33,10 @@ using namespace std;
 
 #ifdef LOCAL
     #define dbg(x) cerr << #x << " = " << (x) << endl
+    #define msg(x) cerr << ">>> " << x << endl
 #else
     #define dbg(x)
+    #define msg(x)
 #endif
 
 typedef long long ll;
