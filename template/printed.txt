@@ -8,7 +8,7 @@ set undofile                      " IMPORTANT: persistent undo (survives closing
 set undodir=~/.vim/undodir
 set foldmethod=syntax
 set autoindent smartindent cindent
-syntax on
+syntax on							" <-- big deal ngl
 colorscheme shine
 filetype plugin indent on
 highlight Number ctermfg=magenta guifg=#ee77ee
