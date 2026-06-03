@@ -6,7 +6,7 @@ set undodir=~/.vim/undodir
 set tabstop=4 shiftwidth=4
 set autoindent smartindent cindent
 syntax on
-colorscheme shine
+colorscheme default
 filetype plugin indent on
 inoremap { {<CR>}<Esc>O
 inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
