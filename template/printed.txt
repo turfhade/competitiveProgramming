@@ -18,7 +18,7 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc  " IMPORTANT: inserts template and jumps to //cursor
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
 augroup numbertoggle
 autocmd InsertEnter * set norelativenumber
 autocmd InsertLeave * set relativenumber
