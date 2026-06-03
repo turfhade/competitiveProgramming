@@ -1,0 +1,10 @@
+set guifont=Monospace\ 22
+set number relativenumber
+set tabstop=4 shiftwidth=4
+set autoindent smartindent cindent
+syntax on
+filetype plugin indent on
+inoremap { {<CR>}<Esc>O
+inoremap ( ()<Left>
+inoremap [ []<Left>
+autocmd FileType cpp nnoremap <F5> :w<CR>:terminal g++ -std=c++17 -O2 % -o out && time ./out < input.txt > output.txt<CR>
