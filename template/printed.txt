@@ -1,20 +1,35 @@
-//fun with vim
-vim.cmd('colorscheme shine')
-vim.cmd('highlight Number ctermfg=magenta guifg=#ee77ee')
-vim.cmd('highlight MatchParen guifg=NONE')
-vim.cmd('autocmd InsertEnter * set norelativenumber')
-vim.cmd('autocmd InsertLeave * set relativenumber')
-vim.cmd('set number')
-vim.cmd('set tabstop=4')
-vim.cmd('set shiftwidth=4')
-vim.keymap.set('i', '{', '{<CR>}<Esc>O')
-vim.keymap.set('i', '(', '()<Left>')
-vim.keymap.set('i', '[', '[]<Left>')
-vim.keymap.set('i', '"', '""<Left>')
-vim.keymap.set('i', "'", "''<Left>")
-vim.opt.clipboard = "unnamedplus"
+set guifont=Monospace\ 22
+set termguicolors
+set number relativenumber
+set tabstop=4 shiftwidth=4
+set clipboard=unnamedplus
+set noswapfile
+set undofile
+set undodir=~/.vim/undodir
+set foldmethod=syntax
+set autoindent smartindent cindent
+syntax on
+colorscheme shine
+filetype plugin indent on
+highlight Number ctermfg=magenta guifg=#ee77ee
+highlight MatchParen guifg=NONE guibg=NONE cterm=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+inoremap { {<CR>}<Esc>O
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
+augroup numbertoggle
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+augroup END
+augroup viewsave
+autocmd BufWinLeave ?* silent! mkview
+autocmd BufWinEnter ?* silent! loadview
+" Save, compile, and run in a vertical terminal split
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>
 
-//boilerplate
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,15 +54,15 @@ void read(vector<T> &a)
     for (auto &x : a)
         cin >> x;
 }
-void solve()
-{
-    /*
+    /* if ez:
     ll n;
     cin >> n;
     vll arr(n);
     read(arr);
    */
-	for(ll i = 1; i < 5; i++)
+void solve()
+{
+	//cursor
 
 }
 
@@ -57,7 +72,7 @@ int main()
     cin.tie(NULL);
 
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--)
         solve();
 
