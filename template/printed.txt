@@ -1,10 +1,10 @@
-set guifont=Monospace\ 22
+set guifont=Monospace\ 22         " IMPORTAT: cant see without proper size
 set termguicolors
 set number relativenumber
 set tabstop=4 shiftwidth=4
-set clipboard=unnamedplus
+set clipboard=unnamedplus         " IMPORTANT: system clipboard integration (copy/paste outside vim)
 set noswapfile
-set undofile
+set undofile                      " IMPORTANT: persistent undo (survives closing the file)
 set undodir=~/.vim/undodir
 set foldmethod=syntax
 set autoindent smartindent cindent
@@ -19,16 +19,15 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc  " IMPORTANT: inserts template and jumps to //cursor
 augroup numbertoggle
 autocmd InsertEnter * set norelativenumber
 autocmd InsertLeave * set relativenumber
 augroup END
 augroup viewsave
-autocmd BufWinLeave ?* silent! mkview
-autocmd BufWinEnter ?* silent! loadview
-" Save, compile, and run in a vertical terminal split
-autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>
+autocmd BufWinLeave ?* silent! mkview      " IMPORTANT --
+autocmd BufWinEnter ?* silent! loadview    " IMPORTANT: saves/restores folds and cursor position
+autocmd filetype cpp nnoremap <F5> :w <CR> :!g++ -std=c++17 -O2 -Wall % -o %< <CR> :vert term ./%< <CR>  " IMPORTANT: F5 saves, compiles, and runs in a vertical split
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,7 +36,6 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<ll> vll;
-
 #define all(x) (x).begin(), (x).end()
 #define pb push_back
 #define fi first
