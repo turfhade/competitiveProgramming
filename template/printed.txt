@@ -9,9 +9,8 @@ set undodir=~/.vim/undodir
 set foldmethod=syntax
 set autoindent smartindent cindent
 syntax on							" <-- big deal ngl
-colorscheme shine
+colorscheme default
 filetype plugin indent on
-highlight Number ctermfg=magenta guifg=#ee77ee
 highlight MatchParen guifg=NONE guibg=NONE cterm=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 inoremap { {<CR>}<Esc>O
