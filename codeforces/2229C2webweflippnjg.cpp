@@ -44,7 +44,7 @@ void solve()
         {
             if(sum[i+1] - arr[i] > 0)
             {
-
+                
             }
     }
     cout << ops << "\n";

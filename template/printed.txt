@@ -1,20 +1,39 @@
-//fun with vim
-vim.cmd('colorscheme shine')
-vim.cmd('highlight Number ctermfg=magenta guifg=#ee77ee')
-vim.cmd('highlight MatchParen guifg=NONE')
-vim.cmd('autocmd InsertEnter * set norelativenumber')
-vim.cmd('autocmd InsertLeave * set relativenumber')
-vim.cmd('set number')
-vim.cmd('set tabstop=4')
-vim.cmd('set shiftwidth=4')
-vim.keymap.set('i', '{', '{<CR>}<Esc>O')
-vim.keymap.set('i', '(', '()<Left>')
-vim.keymap.set('i', '[', '[]<Left>')
-vim.keymap.set('i', '"', '""<Left>')
-vim.keymap.set('i', "'", "''<Left>")
-vim.opt.clipboard = "unnamedplus"
+set guifont=Monospace\ 22
+syntax on
+set termguicolors
+colorscheme shine
 
-//boilerplate
+highlight Number ctermfg=magenta guifg=#ee77ee
+highlight MatchParen guifg=NONE guibg=NONE cterm=NONE
+
+set number
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+set clipboard=unnamedplus
+set noswapfile
+set undofile
+set undodir=~/.vim/undodir
+
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
+
+inoremap { {<CR>}<Esc>O
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
+autocmd FileType cpp nnoremap <F5> :w<CR>:!xterm -e 'g++ -std=c++17 -o "%:r" "%" && "%:r"; read'&<CR>
+filetype plugin indent on
+set autoindent
+set smartindent
+set cindent
+set foldmethod=syntax
+
+build:g++ -DLOCAL -Wall "%f" -o "%n"
+run: g++ -DLOCAL "%f" -o "%n" && "./%n"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,16 +58,16 @@ void read(vector<T> &a)
     for (auto &x : a)
         cin >> x;
 }
-void solve()
-{
-    /*
+    /* i use this often
     ll n;
     cin >> n;
     vll arr(n);
     read(arr);
    */
-	for(ll i = 1; i < 5; i++)
-
+void solve()
+{
+//cursor
+return 0;
 }
 
 int main()
