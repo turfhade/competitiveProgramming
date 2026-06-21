@@ -1,0 +1,50 @@
+set guifont=Monospace\ 22
+set termguicolors
+set clipboard=unnamedplus
+set undofile
+set undodir=~/.vim/undodir
+set tabstop=4 shiftwidth=4
+set autoindent smartindent cindent
+syntax on
+colorscheme default
+filetype plugin indent on
+inoremap { {<CR>}<Esc>O
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/cursor<CR>:nohlsearch<CR>cc
+augroup viewsave
+autocmd BufWinLeave ?* silent! mkview
+autocmd BufWinEnter ?* silent! loadview
+autocmd FileType cpp nnoremap <F4> :w <BAR> !konsole --noclose -e bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
+autocmd FileType cpp nnoremap <F3> :w <BAR> !gnome-terminal -- bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'; echo; read -p '--- Press Enter to close ---'" &<CR><CR>
+autocmd FileType cpp nnoremap <F2> :w <BAR> !xfce4-terminal --hold -x bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
+autocmd FileType cpp nnoremap <F1> :w <BAR> !xterm -hold -e bash -c "g++ -O3 -Wall '%:p' -o '%:p:r' && '%:p:r'" &<CR><CR>
+augroup END
+inoremap { {<CR>}<Esc>O
+inoremap ,cpp <Esc>:0r ~/template<CR>:silent! /\/\/
+
+#include <bits/stdc++.h>
+using namespace std;
+#ifdef LOCAL
+    #define dbg(x) cerr << #x << " = " << (x) << endl
+    #define msg(x) cerr << ">>> " << x << endl
+#else
+    #define dbg(x)
+    #define msg(x)
+#endif
+typedef long long ll;
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define rep(i, a, b) for (int i = (a); i < (b); i++)
+void solve()
+{
+    //cursor
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t = 1;
+    //cin >> t;
+    while (t--)
+        solve();
+    return 0;
+}
